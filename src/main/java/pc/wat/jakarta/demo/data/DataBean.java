@@ -40,8 +40,10 @@ public class DataBean {
         em.persist(newPlace);
     }
     
-    public void deleteLocation(Person existingPerson){
-        
+    public void deleteLocation(Place existingPerson){
+        var pk = new PlaceId(existingPerson.city, existingPerson.street);
+        var managedExistingPlace = em.find(Place.class, pk);
+        em.remove(managedExistingPlace);
     }
     
     public List<Place> getAllPlaces(){
