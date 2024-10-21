@@ -12,21 +12,27 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Arrays;
 
-@WebFilter(filterName = "throttle filter",urlPatterns = {"/person.html","/place.html"})
+@WebFilter(filterName = "throttle filter",urlPatterns = {"/*"})
 public class ThrotleFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest sr, ServletResponse sr1, FilterChain fc) throws IOException, ServletException {
         HttpServletRequest hsr = (HttpServletRequest) sr;
         var cookies = hsr.getCookies();
-        boolean isHaltingCookiePresent = Arrays.stream(cookies).anyMatch( cookie -> cookie.getName().equals("data_modified") );
-        if (isHaltingCookiePresent)
-        {
-            HttpServletResponse hsresp = (HttpServletResponse) sr1;
-            hsresp.sendRedirect("wait.html");
+        var requestPath = hsr.getRequestURI();
+        if (requestPath.equals("/jakarta/input_people") || requestPath.equals("/jakarta-demo/input_places")) {
+            boolean isHaltingCookiePresent = Arrays.stream(cookies).anyMatch( cookie -> cookie.getName().equals("data_modified") );
+            if (isHaltingCookiePresent)
+            {
+                HttpServletResponse hsresp = (HttpServletResponse) sr1;
+                hsresp.sendRedirect("wait.html");
+                
+            }
+            else
+                fc.doFilter(sr, sr1);
         }
-        fc.doFilter(sr, sr1);
-        
+        else
+            fc.doFilter(sr, sr1);
     }
     
 }

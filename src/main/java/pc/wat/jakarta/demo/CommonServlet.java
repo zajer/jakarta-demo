@@ -12,7 +12,7 @@ public class CommonServlet extends HttpServlet {
     
     protected void addThrottlePreventingCookie(HttpServletResponse resp){
         var throttleCookie = new Cookie("data_modified","ignoreMe");
-        throttleCookie.setMaxAge(10);
+        throttleCookie.setMaxAge(15);
         resp.addCookie(throttleCookie);
     }
     protected void redirectAfterSuccess(HttpServletResponse resp) throws IOException{
