@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Formularz dodawania osób</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <form action="/jakarta-demo/input_people" method="POST">
+            <label for="fnameId">Imię:</label><br>
+            <input type="text" id="fnameId" name="fname"/><br>
+            <label for="snameId">Nazwisko:</label><br>
+            <input type="text" id="snameId" name="sname"/><br>
+            <label for="pidId">PESEL</label><br>
+            <input type="text" id="pidId" name="pid"/><br>
+            <label for="fidsId">PESELE przyjaciół oddzielone ";"</label><br>
+            <textarea id="fidsId" name="fids" rows="4" cols="50"></textarea><br>
+            
+            <label for="cityId">Miasto</label><br>
+            <input type="text" id="cityId" name="city"/><br>
+            <label for="streetId">Ulica</label><br>
+            <input type="text" id="streetId" name="street"/><br>
+            <input type="submit" value="Dodaj osobe"/>
+        </form>
+    </body>
+</html>
