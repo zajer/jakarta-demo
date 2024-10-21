@@ -19,7 +19,8 @@ public class DataBean {
     }
     
     public void deletePerson(Person existingPerson){
-        
+        var managedExistingPerson = em.find(Person.class, existingPerson.identificationNumber);
+        em.remove(managedExistingPerson);
     }
     
     public List<Person> getAllPeople() {

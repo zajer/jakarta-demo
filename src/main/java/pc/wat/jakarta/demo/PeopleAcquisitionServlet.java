@@ -17,17 +17,7 @@ import pc.wat.jakarta.demo.data.Place;
 import pc.wat.jakarta.demo.data.PlaceId;
 
 @WebServlet(name = "people acquisition", urlPatterns = {"/input_people"})
-public class PeopleAcquisitionServlet extends HttpServlet {
-
-    private static final String firstNameParamName = "fname";
-    private static final String secondNameParamName = "sname";
-    private static final String personIdentificationNumberParamName = "pid";
-    private static final String friendsIdentifiactionNumbersParamName = "fids";
-    private static final String cityParamName = "city";
-    private static final String streetParamName = "street";
-    
-    @Inject
-    DataBean dataAccessor;
+public class PeopleAcquisitionServlet extends PeopleManagementBase {
     
     private List<Integer> parseFriendsIds(String friendsIdsSeperatedBySemicolon){
         if (! friendsIdsSeperatedBySemicolon.equals(""))
@@ -45,12 +35,12 @@ public class PeopleAcquisitionServlet extends HttpServlet {
         
         personData.forEach( (k,vs) -> {String log = k + " " + vs.length + ":" + vs[0]; System.out.println(log);});
         
-        String firstName = personData.get(firstNameParamName).length > 0 ? personData.get(firstNameParamName)[0] : "";
-        String secondName = personData.get(secondNameParamName).length > 0 ? personData.get(secondNameParamName)[0] : "";
-        String idAsText = personData.get(personIdentificationNumberParamName).length > 0 ? personData.get(personIdentificationNumberParamName)[0] : null;
-        String friendsIdsAsText = personData.get(friendsIdentifiactionNumbersParamName).length > 0 ? personData.get(friendsIdentifiactionNumbersParamName)[0] : null;
-        String city = personData.get(cityParamName).length > 0 ? personData.get(cityParamName)[0] : null;
-        String street = personData.get(streetParamName).length > 0 ? personData.get(streetParamName)[0] : null;
+        String firstName = personData.get(FIRST_NAME_PARAM_NAME).length > 0 ? personData.get(FIRST_NAME_PARAM_NAME)[0] : "";
+        String secondName = personData.get(SECOND_NAME_PARAM_NAME).length > 0 ? personData.get(SECOND_NAME_PARAM_NAME)[0] : "";
+        String idAsText = personData.get(PERSON_IDENTIFICATION_NUMBER_PARAM_NAME).length > 0 ? personData.get(PERSON_IDENTIFICATION_NUMBER_PARAM_NAME)[0] : null;
+        String friendsIdsAsText = personData.get(FRIENDS_IDENTIFICATION_NUMBERS_PARAM_NAME).length > 0 ? personData.get(FRIENDS_IDENTIFICATION_NUMBERS_PARAM_NAME)[0] : null;
+        String city = personData.get(CITY_PARAM_NAME).length > 0 ? personData.get(CITY_PARAM_NAME)[0] : null;
+        String street = personData.get(STREET_NAME_PARAM_NAME).length > 0 ? personData.get(STREET_NAME_PARAM_NAME)[0] : null;
         
         int id = Integer.parseInt(idAsText);
         List<Integer> friendsIds = parseFriendsIds(friendsIdsAsText);
