@@ -10,9 +10,9 @@
     </h:head>
     <h:body>
         <h:form id="stats">
-            <h:outputText id="people" value="#{stats.numberOfPeople}"/><br/>
-            <h:outputText id="places" value="#{stats.numberOfPlaces}"/><br/>
-            <h:outputText id="friends" value="#{stats.averageNumOfFriends}"/>
+            Liczba znanych osób <h:outputText id="people" value="#{stats.numberOfPeople}"/><br/>
+            Liczba znanych miejsc <h:outputText id="places" value="#{stats.numberOfPlaces}"/><br/>
+            Średnia liczba znajomych <h:outputText id="friends" value="#{stats.averageNumOfFriends}"/>
             <f:websocket channel="trigger" onmessage="function(msg){console.log(msg);}">
                 <f:ajax event="triggerAjax" execute="people places friends" render="people places friends"/>
             </f:websocket>
