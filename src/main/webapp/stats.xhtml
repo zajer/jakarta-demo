@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core"
+      >
+    <h:head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <h:form id="stats">
+            <h:outputText id="people" value="#{stats.numberOfPeople}"/><br/>
+            <h:outputText id="places" value="#{stats.numberOfPlaces}"/><br/>
+            <h:outputText id="friends" value="#{stats.averageNumOfFriends}"/>
+            <f:websocket channel="trigger" onmessage="function(msg){console.log(msg);}">
+                <f:ajax event="triggerAjax" execute="people places friends" render="people places friends"/>
+            </f:websocket>
+        </h:form>
+        
+    </h:body>
+</html>
