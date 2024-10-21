@@ -1,17 +1,14 @@
 
 package pc.wat.jakarta.demo;
 
-import jakarta.inject.Inject;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
-import pc.wat.jakarta.demo.data.DataBean;
 import pc.wat.jakarta.demo.data.Person;
 import pc.wat.jakarta.demo.data.Place;
 import pc.wat.jakarta.demo.data.PlaceId;

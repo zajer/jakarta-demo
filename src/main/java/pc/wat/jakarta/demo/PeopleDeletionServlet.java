@@ -6,16 +6,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
-import static pc.wat.jakarta.demo.PeopleManagementBase.CITY_PARAM_NAME;
-import static pc.wat.jakarta.demo.PeopleManagementBase.FIRST_NAME_PARAM_NAME;
-import static pc.wat.jakarta.demo.PeopleManagementBase.FRIENDS_IDENTIFICATION_NUMBERS_PARAM_NAME;
-import static pc.wat.jakarta.demo.PeopleManagementBase.PERSON_IDENTIFICATION_NUMBER_PARAM_NAME;
-import static pc.wat.jakarta.demo.PeopleManagementBase.SECOND_NAME_PARAM_NAME;
-import static pc.wat.jakarta.demo.PeopleManagementBase.STREET_NAME_PARAM_NAME;
 import pc.wat.jakarta.demo.data.Person;
-import pc.wat.jakarta.demo.data.Place;
-import pc.wat.jakarta.demo.data.PlaceId;
 
 @WebServlet(name="people deletion",urlPatterns={"/delete_people"})
 public class PeopleDeletionServlet extends PeopleManagementBase {
