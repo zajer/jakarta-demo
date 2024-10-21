@@ -1,6 +1,8 @@
 
 package pc.wat.jakarta.demo.data;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -23,9 +25,11 @@ public class Person {
     String lastName;
     @Id int identificationNumber;
     
+    @JsonBackReference
     @ManyToMany
     List<Person> friends;
     
+    @JsonManagedReference
     @ManyToOne
     @NotNull
     Place location;

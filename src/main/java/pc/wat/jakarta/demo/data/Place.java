@@ -1,6 +1,7 @@
 
 package pc.wat.jakarta.demo.data;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.IdClass;
@@ -21,6 +22,7 @@ public class Place {
     @Id String city;
     @Id String street;
     
+    @JsonBackReference
     @OneToMany(mappedBy = "location")
     List<Person> peopleAtLocation;
 }
