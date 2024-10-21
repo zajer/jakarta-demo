@@ -26,5 +26,6 @@ public class PeopleDeletionServlet extends PeopleManagementBase {
                         .build();
         
         dataAccessor.deletePerson(existingPerson);
+        super.doPost(req, resp);
     }
 }

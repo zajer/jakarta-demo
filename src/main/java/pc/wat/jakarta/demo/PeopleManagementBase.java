@@ -2,10 +2,9 @@
 package pc.wat.jakarta.demo;
 
 import jakarta.inject.Inject;
-import jakarta.servlet.http.HttpServlet;
 import pc.wat.jakarta.demo.data.DataBean;
 
-public class PeopleManagementBase extends HttpServlet {
+public class PeopleManagementBase extends CommonServlet {
     protected static final String FIRST_NAME_PARAM_NAME = "fname";
     protected static final String SECOND_NAME_PARAM_NAME = "sname";
     protected static final String PERSON_IDENTIFICATION_NUMBER_PARAM_NAME = "pid";

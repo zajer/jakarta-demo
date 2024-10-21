@@ -3,6 +3,7 @@ package pc.wat.jakarta.demo;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -55,6 +56,7 @@ public class PeopleAcquisitionServlet extends PeopleManagementBase {
                         .build();
         
         dataAccessor.addPerson(newPerson);
+        super.doPost(req, resp);
     }
     
 }

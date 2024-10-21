@@ -28,6 +28,7 @@ public class PlacesDeletionServlet extends PlacesManagementBase {
                     .build();
         
         dataAccessor.deleteLocation(existingPlace);
+        super.doPost(req, resp);
     }
     
 }

@@ -29,6 +29,7 @@ public class PlacesAcquisitionServlet extends PlacesManagementBase {
                     .build();
         
         dataAccessor.addLocation(newPlace);
+        super.doPost(req, resp);
     }
     
 }
