@@ -20,7 +20,7 @@ public class ThrotleFilter implements Filter {
         HttpServletRequest hsr = (HttpServletRequest) sr;
         var cookies = hsr.getCookies();
         var requestPath = hsr.getRequestURI();
-        if (requestPath.equals("/jakarta/input_people") || requestPath.equals("/jakarta-demo/input_places")) {
+        if (requestPath.equals("/jakarta/input_people") || requestPath.equals("/jakarta-demo/input_places") || requestPath.equals("/jakarta-demo/delete_places") || requestPath.equals("/jakarta-demo/delete_people") ) {
             boolean isHaltingCookiePresent = Arrays.stream(cookies).anyMatch( cookie -> cookie.getName().equals("data_modified") );
             if (isHaltingCookiePresent)
             {
